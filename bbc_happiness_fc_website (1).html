@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BBC Happiness Football Club</title>
+  <style>
+    :root{
+      --bg:#050505;
+      --card:#0b0b0b;
+      --accent:#ff7fb3; /* pink from logo */
+      --accent-2:#9ad3f5; /* light blue */
+      --muted:#bdbdbd;
+      --glass: rgba(255,255,255,0.03);
+      --container:1100px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg) 0%, #0a0a0a 100%);color:#eee;line-height:1.5}
+    .site{max-width:var(--container);margin:0 auto;padding:20px}
+    header{display:flex;align-items:center;gap:18px;padding:18px 0}
+    .logo{width:88px;height:88px;border-radius:12px;overflow:hidden;flex:0 0 88px;box-shadow:0 6px 20px rgba(0,0,0,0.6)}
+    .logo img{width:100%;height:100%;object-fit:contain;background:#000}
+    .title h1{margin:0;font-size:22px;letter-spacing:1px}
+    .title p{margin:4px 0 0;color:var(--muted);font-size:13px}
+
+    nav{margin-top:8px;display:flex;justify-content:space-between;align-items:center}
+    .nav-links{display:flex;gap:12px}
+    .nav-links a{color:#ddd;padding:10px 12px;border-radius:8px;text-decoration:none;font-weight:600}
+    .nav-links a.active, .nav-links a:hover{background:linear-gradient(90deg, rgba(255,127,179,0.12), rgba(154,211,245,0.06));color:var(--accent)}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:28px}
+    .hero .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:14px;box-shadow:0 8px 40px rgba(0,0,0,0.6)}
+    .hero h2{margin:0 0 10px;font-size:28px;color:var(--accent)}
+    .hero p{color:var(--muted);margin:0}
+    .cta{margin-top:18px;display:flex;gap:12px}
+    .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#ff5f8d);color:#111}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#ddd}
+
+    /* sections */
+    section{margin-top:28px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .card--section{background:var(--card);padding:18px;border-radius:12px}
+    h3{margin:0 0 10px;color:var(--accent-2)}
+    p.lead{color:var(--muted);margin:0}
+
+    .founders .item{display:flex;flex-direction:column;align-items:center;padding:14px;background:var(--glass);border-radius:10px}
+    .founders .name{margin-top:8px;font-weight:700}
+
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+    .gallery-grid img{width:100%;height:140px;object-fit:cover;border-radius:10px;filter:contrast(0.95)}
+
+    form.contact{display:grid;gap:10px}
+    input,textarea{background:#060606;border:1px solid rgba(255,255,255,0.04);padding:10px;border-radius:8px;color:#eee}
+    textarea{min-height:110px}
+
+    footer{margin-top:40px;padding:28px 0;text-align:center;color:var(--muted);font-size:14px}
+
+    /* responsive */
+    @media(max-width:880px){
+      .hero{grid-template-columns:1fr}
+      header{gap:12px}
+      .logo{width:68px;height:68px}
+    }
+
+    /* small animation */
+    .fade{opacity:0;transform:translateY(10px);transition:all .45s ease}
+    .fade.show{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header>
+      <div class="logo"><img src="BBC-HAPPINESSS.jpg" alt="BBC Happiness Logo"></div>
+      <div class="title">
+        <h1>BBC Happiness Football Club</h1>
+        <p>Juhu Beach • Play • Smile • Celebrate</p>
+      </div>
+    </header>
+
+    <nav>
+      <div class="nav-links">
+        <a href="#home" class="nav-link active" data-page="home">Home</a>
+        <a href="#about" class="nav-link" data-page="about">About</a>
+        <a href="#founders" class="nav-link" data-page="founders">Founders</a>
+        <a href="#cup" class="nav-link" data-page="cup">BBC Happiness Cup</a>
+        <a href="#gallery" class="nav-link" data-page="gallery">Gallery</a>
+        <a href="#sponsors" class="nav-link" data-page="sponsors">Sponsors</a>
+        <a href="#contact" class="nav-link" data-page="contact">Contact</a>
+      </div>
+      <div>
+        <button class="btn btn-ghost" onclick="scrollToSection('contact')">Sponsor Us</button>
+      </div>
+    </nav>
+
+    <main>
+      <!-- HOME -->
+      <section id="home" class="fade show">
+        <div class="hero">
+          <div class="card">
+            <h2>Welcome to BBC Happiness</h2>
+            <p class="lead">A Juhu-based community club created to motivate players of all ages to play football, stay fit, and — above all — be happy. We train on Juhu Beach and host the annual BBC Happiness Cup, bringing together youngsters and veterans to celebrate sport and community.</p>
+            <div class="cta">
+              <button class="btn btn-primary" onclick="scrollToSection('about')">Learn More</button>
+              <a class="btn btn-ghost" href="https://www.facebook.com/100070773911711/posts/beach-boys-juhu-practice-session-on-beach/105256398499792/" target="_blank">Visit Facebook</a>
+            </div>
+          </div>
+
+          <aside class="card card--section">
+            <h3>Quick Facts</h3>
+            <ul style="margin:8px 0 0;padding-left:16px;line-height:1.6;color:var(--muted)">
+              <li>Location: Juhu Beach, Mumbai</li>
+              <li>Founded by: 6 local community leaders</li>
+              <li>Event: BBC Happiness Cup — ~100 players</li>
+              <li>Mission: Fitness, joy, inclusion</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="card--section fade">
+        <h3>About the Club</h3>
+        <p style="color:var(--muted)">A club based in Juhu which started to motivate players of all the age groups to come and play and be happy. This club was founded by a few prestige personnel that include <strong>Mr. Glane Misquitta</strong>, <strong>Mr. Gilroy Creado</strong>, <strong>Mr. Sanju Creado</strong>, <strong>Mr. Sudhir Talekar</strong>, <strong>Mr. Henrique Rodrigues</strong>, and <strong>Mr. Oswald Dias</strong>. This team plays football on the Juhu Beach and hosts an internal tournament known as the <strong>BBC Happiness Cup</strong> where almost 100 players — youngsters and veterans — play. It inspires everyone to be fit and do what they want. It stands for happiness and whether they lose or win tournaments they always make it a point to celebrate both the wins and losses.</p>
+      </section>
+
+      <!-- FOUNDERS -->
+      <section id="founders" class="fade">
+        <h3>Founders</h3>
+        <div class="grid founders" style="margin-top:12px">
+          <div class="item card--section"><div style="font-size:28px">👤</div><div class="name">Mr. Glane Misquitta</div></div>
+          <div class="item card--section"><div style="font-size:28px">👤</div><div class="name">Mr. Gilroy Creado</div></div>
+          <div class="item card--section"><div style="font-size:28px">👤</div><div class="name">Mr. Sanju Creado</div></div>
+          <div class="item card--section"><div style="font-size:28px">👤</div><div class="name">Mr. Sudhir Talekar</div></div>
+          <div class="item card--section"><div style="font-size:28px">👤</div><div class="name">Mr. Henrique Rodrigues</div></div>
+          <div class="item card--section"><div style="font-size:28px">👤</div><div class="name">Mr. Oswald Dias</div></div>
+        </div>
+      </section>
+
+      <!-- CUP -->
+      <section id="cup" class="card--section fade">
+        <h3>BBC Happiness Cup</h3>
+        <p style="color:var(--muted)">The BBC Happiness Cup is our annual internal tournament, bringing together nearly 100 players across different age groups. It focuses on participation, fitness, and fun — and ends with celebrations for both winners and participants. The Cup is organised and run by the club's committee and is one of our flagship events that strengthens community bonds.</p>
+        <div style="margin-top:12px" class="grid">
+          <div class="card--section">
+            <strong>Who participates</strong>
+            <p class="lead">Young players & veterans from the club — all skill levels welcome.</p>
+          </div>
+          <div class="card--section">
+            <strong>When & Where</strong>
+            <p class="lead">Held annually on Juhu Beach — dates announced on our Facebook page.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="gallery" class="fade">
+        <h3>Gallery</h3>
+        <div class="gallery-grid" style="margin-top:12px">
+          <img src="https://via.placeholder.com/600x400?text=Training+on+Juhu+Beach" alt="training">
+          <img src="https://via.placeholder.com/600x400?text=BBC+Happiness+Cup" alt="cup">
+          <img src="https://via.placeholder.com/600x400?text=Team+Celebration" alt="celebration">
+          <img src="https://via.placeholder.com/600x400?text=Players+Warmup" alt="warmup">
+        </div>
+      </section>
+
+      <!-- SPONSORS -->
+      <section id="sponsors" class="card--section fade">
+        <h3>Sponsor the Club</h3>
+        <p style="color:var(--muted)">BBC Happiness Football Club welcomes sponsors who wish to support our mission of spreading joy and fitness through football. Sponsorship helps with equipment, tournament costs, and community outreach.</p>
+        <div style="margin-top:12px" class="grid">
+          <div class="card--section">
+            <strong>Primary Contacts</strong>
+            <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+              <li><strong>Mr. Oswald Dias</strong></li>
+              <li><strong>Mr. Gilroy Creado</strong></li>
+              <li><strong>Mr. Henrique Rodrigues</strong></li>
+            </ul>
+            <p style="margin-top:10px;color:var(--muted)">Email or phone details can be added here when you're ready.</p>
+          </div>
+          <div class="card--section">
+            <strong>Why sponsor us?</strong>
+            <p class="lead">Local visibility on a popular community event, support youth & veteran players, and demonstrate corporate social responsibility in Mumbai.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="card--section fade">
+        <h3>Contact</h3>
+        <p style="color:var(--muted)">Follow our updates and announcements on Facebook. For sponsorship or any queries fill the form below or email the club committee.</p>
+        <div style="display:grid;grid-template-columns:1fr 380px;gap:18px;margin-top:12px">
+          <form class="contact card--section" onsubmit="handleForm(event)">
+            <input placeholder="Your name" required id="name">
+            <input placeholder="Your email" type="email" required id="email">
+            <input placeholder="Subject" id="subject">
+            <textarea placeholder="Message" id="message"></textarea>
+            <div style="display:flex;gap:10px">
+              <button class="btn btn-primary" type="submit">Send Message</button>
+              <button class="btn btn-ghost" type="button" onclick="resetForm()">Reset</button>
+            </div>
+            <div id="formStatus" style="color:var(--muted);font-size:13px;margin-top:8px"></div>
+          </form>
+
+          <div class="card--section">
+            <strong>Social</strong>
+            <p style="color:var(--muted);margin-top:8px">Facebook: <a href="https://www.facebook.com/100070773911711/posts/beach-boys-juhu-practice-session-on-beach/105256398499792/" target="_blank" style="color:var(--accent)">BBC Happiness on Facebook</a></p>
+
+            <strong style="display:block;margin-top:12px">Location</strong>
+            <p style="color:var(--muted);margin-top:6px">Juhu Beach, Mumbai</p>
+
+            <strong style="display:block;margin-top:12px">Sponsorship Contacts</strong>
+            <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+              <li>Mr. Oswald Dias</li>
+              <li>Mr. Gilroy Creado</li>
+              <li>Mr. Henrique Rodrigues</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      &copy; 2025 BBC Happiness Football Club • Juhu Beach • All rights reserved
+    </footer>
+  </div>
+
+  <script>
+    // Navigation behaviour
+    const links = document.querySelectorAll('.nav-link');
+    links.forEach(a=>a.addEventListener('click', e=>{
+      e.preventDefault();
+      document.querySelectorAll('.nav-link').forEach(x=>x.classList.remove('active'));
+      a.classList.add('active');
+      const page = a.getAttribute('data-page');
+      document.getElementById(page).scrollIntoView({behavior:'smooth',block:'start'});
+    }));
+
+    // fade in sections when in view
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting) en.target.classList.add('show');
+      });
+    },{threshold:0.12});
+    document.querySelectorAll('section').forEach(s=>observer.observe(s));
+
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    // simple form handler (client-side only)
+    function handleForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const status = document.getElementById('formStatus');
+      if(!name || !email || !message){
+        status.textContent='Please fill name, email and message.';
+        return;
+      }
+      // For now we only simulate sending
+      status.textContent='Thanks '+name+' — your message is ready. To actually send it, please email the club or connect on Facebook.';
+      // Clear form
+      //document.querySelector('.contact').reset();
+    }
+    function resetForm(){
+      document.getElementById('name').value='';
+      document.getElementById('email').value='';
+      document.getElementById('subject').value='';
+      document.getElementById('message').value='';
+      document.getElementById('formStatus').textContent='';
+    }
+  </script>
+</body>
+</html>
